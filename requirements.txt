@@ -1,2 +1,7 @@
 streamlit
 openai
+seaborn
+matplotlib
+numpy
+pandas
+datetime
