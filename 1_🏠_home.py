@@ -11,25 +11,21 @@ if "data" not in st.session_state:
     st.session_state["data"] = df_data
 
 st.markdown("# FIFA23 OFFICIAL DATASET! ⚽️")
-st.sidebar.markdown("Desenvolvido por [Asimov Academy](https://asimov.academy)")
+st.sidebar.markdown("Developed by [Asimov Academy](https://asimov.academy)")
 
 
-btn = st.link_button("Acesse os dados no Kaggle","https://www.kaggle.com/datasets/kevwesophia/fifa23-official-datasetclean-data")
+btn = st.link_button("Access data in Kaggle","https://www.kaggle.com/datasets/kevwesophia/fifa23-official-datasetclean-data")
 
 
 st.markdown(
     """
-    O conjunto de dados
-    de jogadores de futebol de 2017 a 2023 fornece informações 
-    abrangentes sobre jogadores de futebol profissionais.
-    O conjunto de dados contém uma ampla gama de atributos, incluindo dados demográficos 
-    do jogador, características físicas, estatísticas de jogo, detalhes do contrato e 
-    afiliações de clubes. 
+    The soccer player dataset from 2017 to 2023 provides comprehensive information on professional soccer players.
+    The dataset contains a wide range of attributes, including player demographics, physical characteristics of the player, 
+    physical characteristics, playing statistics, contract details and club affiliations. 
     
-    Com **mais de 17.000 registros**, este conjunto de dados oferece um recurso valioso para 
-    analistas de futebol, pesquisadores e entusiastas interessados em explorar vários 
-    aspectos do mundo do futebol, pois permite estudar atributos de jogadores, métricas de 
-    desempenho, avaliação de mercado, análise de clubes, posicionamento de jogadores e 
-    desenvolvimento do jogador ao longo do tempo.
+    With **more than 17,000 records**, this dataset offers a valuable resource for 
+    soccer analysts, researchers and enthusiasts interested in exploring various 
+    aspects of the soccer world, as it allows them to study player attributes, performance metrics, market 
+    metrics, market evaluation, club analysis, player positioning and player development over time. 
 """
 )

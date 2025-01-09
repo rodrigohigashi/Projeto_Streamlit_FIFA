@@ -4,32 +4,32 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-# Carregar os dados
+# Loading data
 df_data = st.session_state["data"]
 
-# Filtro por clube
-clubes = df_data["Club"].value_counts().index
-club = st.sidebar.selectbox("Selecione um clube", clubes)
+# Filter per club
+clubs = df_data["Club"].value_counts().index
+club = st.sidebar.selectbox("Select one club", clubs)
 
-# Filtrar os dados para o clube selecionado
+# Filtering data for selected club
 df_filtered = df_data[df_data["Club"] == club]
 
-# Definir faixas de salários semanais
+# Defining weekly salary range
 salary_bins = [0, 5000, 10000, 15000, 20000, 30000, 50000, np.inf]
 salary_labels = ['0-5k', '5k-10k', '10k-15k', '15k-20k', '20k-30k', '30k-50k', '50k+']
 df_filtered['Salary Range'] = pd.cut(df_filtered['Wage(£)'], bins=salary_bins, labels=salary_labels)
 
-# Calcular a média do salário semanal por nacionalidade e faixa de salário
+# Calculating average weekly salary by nationality and salary
 salary_by_nationality_and_range = df_filtered.groupby(['Nationality', 'Salary Range'])['Wage(£)'].mean().unstack()
 
-# Configurar o gráfico
+# Set up the chart
 plt.figure(figsize=(12, 8))
 sns.heatmap(salary_by_nationality_and_range, cmap="YlGnBu", annot=False, fmt="d", cbar=True)
 
-# Ajustes no gráfico
-plt.title(f"Mapa de Calor: Nacionalidade e Faixa de Salário - {club}", fontsize=16)
-plt.xlabel('Faixa de Salário Semanal (£)')
-plt.ylabel('Nacionalidade')
+# Fit on chart
+plt.title(f"Heatmap: Nationality and Salary Range - {club}", fontsize=16)
+plt.xlabel('Weekly Salary Range (£)')
+plt.ylabel('Nationality')
 
-# Exibir o gráfico no Streamlit
+# Exhibit the chart on Streamlit
 st.pyplot(plt)
